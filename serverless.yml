@@ -1,0 +1,14 @@
+service: axios-proxy
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  proxy:
+    handler: handler.proxy
+    memorySize: 128MB
+    events:
+      - http:
+          path: proxy
+          method: post
